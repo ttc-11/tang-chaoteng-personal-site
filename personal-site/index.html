@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>个人网站 | AI Personal Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css?v=20260704-7" />
+  </head>
+  <body data-theme="night">
+    <div class="loading-veil" id="loadingVeil" aria-hidden="true">
+      <div class="loading-copy">
+        <span>Loading Portfolio</span>
+        <strong>Tang Chaoteng</strong>
+      </div>
+    </div>
+    <div class="background-stage" aria-hidden="true">
+      <div class="bg-orb bg-orb-a"></div>
+      <div class="bg-orb bg-orb-b"></div>
+      <div class="bg-orb bg-orb-c"></div>
+      <div class="bg-grid"></div>
+      <div class="bg-matrix bg-matrix-left">0101 1100 0011 1010 0110 1001 0010</div>
+      <div class="bg-matrix bg-matrix-right">CONTENT STRATEGY GROWTH EXECUTION ANALYSIS</div>
+      <div class="bg-scanlines"></div>
+      <div class="bg-pulse bg-pulse-a"></div>
+      <div class="bg-pulse bg-pulse-b"></div>
+      <div class="bg-data-line bg-data-line-a"></div>
+      <div class="bg-data-line bg-data-line-b"></div>
+      <div class="bg-beam bg-beam-a"></div>
+      <div class="bg-beam bg-beam-b"></div>
+      <div class="bg-wordmark">CONTENT OPERATIONS</div>
+      <div class="bg-wordmark bg-wordmark-secondary">TANG CHAOTENG</div>
+    </div>
+    <div class="page-noise" aria-hidden="true"></div>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <div class="page-shell">
+      <header class="hero">
+        <nav class="topbar">
+          <span class="brand">汤超腾</span>
+          <div class="topbar-links">
+            <a href="#identitySection">个人介绍</a>
+            <a href="#skillSection">能力展示</a>
+            <a href="#projectSection">项目实践</a>
+            <a href="#contactAnchor">联系入口</a>
+          </div>
+          <button class="ghost-button magnetic-button" id="themeToggle" type="button">切换明暗</button>
+        </nav>
+
+        <div class="hero-grid">
+          <section class="hero-copy reveal-block">
+            <p class="eyebrow">PERSONAL PROFILE</p>
+            <h1>汤超腾，一名持续进入真实业务场景的内容与运营实践者。</h1>
+            <p class="hero-text">
+              杭州师范大学电子商务专业在读，持续积累内容运营、跨境电商与增长相关实践经验。
+              我更在意的是如何把内容表达、执行推进与复盘优化结合起来，形成真正有效的工作方式。
+            </p>
+
+            <div class="hero-signals">
+              <span>内容协作</span>
+              <span>跨境电商运营</span>
+              <span>数据复盘优化</span>
+            </div>
+
+            <div class="hero-actions">
+              <a class="primary-button magnetic-button" href="#content">查看内容框架</a>
+              <button class="secondary-button magnetic-button" id="contactTrigger" type="button">留下联系方式</button>
+            </div>
+
+            <div class="hero-summary">
+              <div>
+                <span>定位</span>
+                <strong>学生 / 内容运营实践者</strong>
+              </div>
+              <div>
+                <span>关注</span>
+                <strong>运营、内容、增长效率</strong>
+              </div>
+            </div>
+          </section>
+
+          <aside class="hero-panel reveal-block">
+            <div class="panel-badge">PROFILE</div>
+            <h2>关于我</h2>
+            <div class="avatar-wrap">
+              <img
+                class="avatar-image"
+                src="./微信图片_20260704095604_21_6.jpg"
+                alt="汤超腾头像"
+              />
+            </div>
+            <ul class="status-list">
+              <li>杭州师范大学电子商务专业，大三在读</li>
+              <li>有 TikTok 电商运营与校园营销实践经验</li>
+              <li>熟悉内容推广、项目执行与基础数据复盘</li>
+            </ul>
+
+            <div class="profile-links">
+              <a class="resume-link magnetic-button" href="./汤超腾的简历%20(2).pdf" target="_blank" rel="noreferrer">
+                查看个人简历
+              </a>
+            </div>
+
+            <div class="mini-stats">
+              <div>
+                <strong data-target="6">0</strong>
+                <span>内容模块</span>
+              </div>
+              <div>
+                <strong data-target="4">0</strong>
+                <span>互动细节</span>
+              </div>
+              <div>
+                <strong data-target="1">0</strong>
+                <span>框架首页</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </header>
+
+      <main id="content" class="content">
+        <section class="section-heading reveal-block">
+          <p class="eyebrow">OVERVIEW</p>
+          <h2>核心内容</h2>
+          <p>
+            这一页主要围绕个人介绍、能力展示和项目实践展开，让访客更快理解我的背景、方向和做事方式。
+          </p>
+        </section>
+
+        <section class="impact-ribbon reveal-block" aria-label="核心亮点">
+          <div class="impact-ribbon-track">
+            <span>20% 团队营销业绩指标推进</span>
+            <span>10% 独立业务指标完成</span>
+            <span>TikTok 百万美元级项目参与</span>
+            <span>内容与办公协作</span>
+            <span>校园营销 / 跨境电商 / 数据复盘</span>
+            <span>20% 团队营销业绩指标推进</span>
+            <span>10% 独立业务指标完成</span>
+            <span>TikTok 百万美元级项目参与</span>
+          </div>
+        </section>
+
+        <section class="story-stage reveal-block">
+          <div class="story-visual">
+            <div class="story-photo-frame">
+              <img src="./微信图片_20260704095604_21_6.jpg" alt="汤超腾展示照片" />
+            </div>
+            <div class="story-floating-card">
+              <span>Current Focus</span>
+              <strong>Content + Growth + Execution</strong>
+            </div>
+          </div>
+
+          <div class="story-copy">
+            <p class="eyebrow">PERSONAL STATEMENT</p>
+            <h2>我希望这个网站传递出的，不只是“我做过什么”，还有“我是怎么进入这些真实场景的”。</h2>
+            <p>
+              从校园营销、跨境内容投放到品牌电商运营，我更在意的是如何把信息理解、内容表达、执行推进和复盘优化结合起来，形成真正有用的工作流。
+            </p>
+
+            <div class="story-lines">
+              <div>
+                <span>身份线</span>
+                <strong>学生身份，但持续进入真实业务场景</strong>
+              </div>
+              <div>
+                <span>能力线</span>
+                <strong>内容、运营与复盘能力同步积累</strong>
+              </div>
+              <div>
+                <span>表达线</span>
+                <strong>不只是列经历，而是强调我如何做事</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="filter-bar reveal-block">
+          <button class="filter-chip active" data-filter="all" type="button">全部</button>
+          <button class="filter-chip" data-filter="identity" type="button">个人介绍</button>
+          <button class="filter-chip" data-filter="ai" type="button">能力展示</button>
+          <button class="filter-chip" data-filter="project" type="button">项目实践</button>
+          <button class="filter-chip" data-filter="future" type="button">延展信息</button>
+        </section>
+
+        <section class="card-grid" id="cardGrid">
+          <article class="content-card spotlight-card reveal-block" data-type="identity" id="identitySection">
+            <span class="card-tag">INTRO</span>
+            <h3>个人介绍</h3>
+            <p>
+              我是汤超腾，杭州师范大学电子商务专业学生，正在持续积累内容运营、跨境电商和 AI 应用相关实践经验。
+            </p>
+            <button class="text-button detail-toggle" type="button">展开填写提示</button>
+            <div class="detail-panel">
+              <p>
+                我希望别人认识到的，不只是我是一名学生，而是我是一个能够把工具、内容和实际执行结合起来的人。
+              </p>
+            </div>
+          </article>
+
+          <article class="content-card spotlight-card reveal-block" data-type="ai" id="skillSection">
+            <span class="card-tag">SKILLS</span>
+            <h3>能力展示</h3>
+            <p>
+              我擅长把内容表达、信息整理、办公协作和执行推进结合起来，让想法更快落地成具体结果。
+            </p>
+            <div class="project-pills">
+              <span>内容生成</span>
+              <span>办公协作</span>
+              <span>效率提升</span>
+            </div>
+          </article>
+
+          <article class="content-card spotlight-card reveal-block" data-type="project" id="projectSection">
+            <span class="card-tag">PROJECTS</span>
+            <h3>项目 / 实践经历</h3>
+            <p>
+              这些经历主要来自我在真实业务场景中的运营与执行实践，也构成了我目前最核心的经验基础。
+            </p>
+            <div class="timeline">
+              <div><strong>01</strong><span>中国移动校园营销</span></div>
+              <div><strong>02</strong><span>TikTok 电商运营实习</span></div>
+              <div><strong>03</strong><span>茶叶品牌电商运营</span></div>
+            </div>
+          </article>
+
+          <article class="content-card spotlight-card reveal-block" data-type="identity">
+            <span class="card-tag">TRAITS</span>
+            <h3>个人特质 / 关键词</h3>
+            <p>
+              除了能力和经历，我也希望自己给人的感觉是踏实、学习快、执行力强，并且愿意在真实任务里持续迭代。
+            </p>
+            <div class="project-pills">
+              <span>学习能力</span>
+              <span>执行力</span>
+              <span>数据意识</span>
+            </div>
+          </article>
+
+          <article class="content-card spotlight-card reveal-block" data-type="future" id="contactAnchor">
+            <span class="card-tag">NEXT</span>
+            <h3>联系入口</h3>
+            <p>
+              如果你对我的经历、项目或 AI 应用方向感兴趣，可以直接留下联系方式。
+            </p>
+            <button class="text-button magnetic-button" id="contactCardTrigger" type="button">现在就留下联系方式</button>
+          </article>
+        </section>
+
+        <section class="spotlight-layout reveal-block">
+          <div class="spotlight-heading">
+            <p class="eyebrow">PROJECT SNAPSHOT</p>
+            <h2>项目聚焦</h2>
+            <p>
+              这里是我目前最具代表性的三段经历，它们分别来自校园营销、跨境内容投放和品牌电商运营场景。
+            </p>
+          </div>
+
+          <div class="spotlight-switcher" role="tablist" aria-label="项目聚焦切换">
+            <button class="spotlight-button active" data-case="mobile" type="button">中国移动校园营销</button>
+            <button class="spotlight-button" data-case="tiktok" type="button">TikTok 电商运营</button>
+            <button class="spotlight-button" data-case="tea" type="button">茶叶品牌电商运营</button>
+          </div>
+
+          <div class="spotlight-panel active" data-case-panel="mobile">
+            <div class="spotlight-metrics">
+              <div><span>场景</span><strong>校园获客</strong></div>
+              <div><span>动作</span><strong>社媒推广 + 用户转化</strong></div>
+              <div><span>结果</span><strong>协同推进 20%</strong></div>
+            </div>
+            <p>
+              牵头组建校园营销项目小组，围绕高校新生推广移动通信套餐，结合抖音、小红书、贴吧等渠道进行内容推广与引流。
+            </p>
+          </div>
+
+          <div class="spotlight-panel" data-case-panel="tiktok">
+            <div class="spotlight-metrics">
+              <div><span>场景</span><strong>跨境内容投放</strong></div>
+              <div><span>动作</span><strong>广告优化 + 达人合作</strong></div>
+              <div><span>结果</span><strong>百万美元级项目参与</strong></div>
+            </div>
+            <p>
+              参与 PatPat TikTok 百万美元级营销项目，负责广告投放、达人合作、内容推广与核心数据指标跟踪，持续优化转化效率。
+            </p>
+          </div>
+
+          <div class="spotlight-panel" data-case-panel="tea">
+            <div class="spotlight-metrics">
+              <div><span>场景</span><strong>传统品牌线上化</strong></div>
+              <div><span>动作</span><strong>店铺搭建 + 详情优化</strong></div>
+              <div><span>结果</span><strong>从 0 到 1 补齐基础运营</strong></div>
+            </div>
+            <p>
+              协助茶叶品牌搭建淘宝销售渠道，完成店铺注册、商品上架、详情页优化与基础运营，让传统商家更顺利进入线上销售流程。
+            </p>
+          </div>
+        </section>
+
+        <section class="process-grid reveal-block">
+          <article class="process-card">
+            <p class="eyebrow">HOW I WORK</p>
+            <h3>我处理内容和运营任务的方式</h3>
+            <div class="process-steps">
+              <div><strong>01</strong><span>先理解目标和人群</span></div>
+              <div><strong>02</strong><span>再整理信息和推进执行</span></div>
+              <div><strong>03</strong><span>最后靠执行和复盘做优化</span></div>
+            </div>
+          </article>
+        </section>
+
+        <section class="quote-wall reveal-block">
+          <div class="quote-card">
+            <p class="eyebrow">FOCUS</p>
+            <h3>我更关心的是，内容和执行能不能真正推动结果。</h3>
+          </div>
+          <div class="quote-card">
+            <p class="eyebrow">STYLE</p>
+            <h3>我更在意内容、执行和复盘能不能形成完整闭环。</h3>
+          </div>
+        </section>
+
+        <section class="cta-band reveal-block">
+          <div>
+            <p class="eyebrow">CONTACT</p>
+            <h2>如果你对我的经历和项目感兴趣，欢迎直接留下联系方式。</h2>
+          </div>
+          <button class="primary-button magnetic-button" type="button" data-contact-open="true">发送给我联系方式</button>
+        </section>
+      </main>
+    </div>
+
+    <div class="contact-modal" id="contactModal" aria-hidden="true">
+      <div class="contact-backdrop" data-close-modal="true"></div>
+      <section class="contact-dialog" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+        <button class="modal-close" id="contactClose" type="button" aria-label="关闭">×</button>
+        <p class="eyebrow">CONTACT</p>
+        <h2 id="contactTitle">附上你的联系方式</h2>
+        <p class="contact-copy">
+          选一种方式留下你的联系方式，我会尽快查看。
+        </p>
+
+        <form class="contact-form" id="contactForm">
+          <div class="contact-options">
+            <label class="contact-option">
+              <input type="radio" name="contactType" value="微信" checked />
+              <span>微信</span>
+            </label>
+            <label class="contact-option">
+              <input type="radio" name="contactType" value="电话" />
+              <span>电话</span>
+            </label>
+            <label class="contact-option">
+              <input type="radio" name="contactType" value="QQ" />
+              <span>QQ</span>
+            </label>
+          </div>
+
+          <label class="contact-field" for="contactValue">
+            <span id="contactLabel">微信号</span>
+            <input
+              id="contactValue"
+              name="contactValue"
+              type="text"
+              placeholder="请输入你的微信号"
+              required
+            />
+          </label>
+
+          <button class="contact-submit magnetic-button" type="submit">发送联系方式</button>
+        </form>
+      </section>
+    </div>
+
+    <aside class="contact-toast" id="contactToast" aria-live="polite">
+      <strong>已成功发送通知</strong>
+      <span>等待帅哥同意</span>
+    </aside>
+
+    <script src="./script.js?v=20260704-7"></script>
+  </body>
+</html>

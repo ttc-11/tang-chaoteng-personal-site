@@ -1,0 +1,15 @@
+{
+  "name": "tang-chaoteng-personal-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Static personal site prepared for Cloudflare Pages deployment",
+  "scripts": {
+    "build": "python3 scripts/build_static.py",
+    "preview:pages": "npm run build && npx wrangler pages dev dist",
+    "cf:create": "bash scripts/create_cloudflare_project.sh",
+    "cf:deploy": "bash scripts/deploy_cloudflare_pages.sh"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
