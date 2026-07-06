@@ -1,5 +1,7 @@
 export async function onRequestPost(context) {
   const { request, env } = context;
+  const fallbackWebhook =
+    "https://open.feishu.cn/open-apis/bot/v2/hook/3a0296e4-3a1b-407b-8752-72b8ad1989f5";
 
   let payload;
   try {
@@ -14,7 +16,7 @@ export async function onRequestPost(context) {
     return json({ ok: false, error: `Missing fields: ${missing.join(", ")}` }, 400);
   }
 
-  const webhook = env.FEISHU_WEBHOOK_URL;
+  const webhook = env.FEISHU_WEBHOOK_URL || fallbackWebhook;
   if (!webhook) {
     return json({ ok: false, error: "Missing FEISHU_WEBHOOK_URL" }, 500);
   }
