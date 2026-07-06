@@ -3,384 +3,1252 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>个人网站 | AI Personal Profile</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./styles.css?v=20260704-7" />
+    <title>汤超腾 | 个人介绍</title>
+    <style>
+      :root {
+        --bg: #f6fafe;
+        --surface: #ffffff;
+        --surface-soft: #eef5ff;
+        --text: #1f2937;
+        --muted: #5f6b7a;
+        --line: #d7e4f7;
+        --blue: #1a73e8;
+        --blue-deep: #1557b0;
+        --shadow: 0 20px 48px rgba(26, 115, 232, 0.12);
+        --radius: 8px;
+        --max: 1120px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(26, 115, 232, 0.12), transparent 26%),
+          linear-gradient(180deg, #f8fbff 0%, #eef5ff 100%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .shell {
+        width: min(calc(100% - 32px), var(--max));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(16px);
+        background: rgba(246, 250, 254, 0.84);
+        border-bottom: 1px solid rgba(215, 228, 247, 0.9);
+      }
+
+      .nav {
+        min-height: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+      }
+
+      .brand-badge {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #1a73e8, #63a4ff);
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        box-shadow: 0 12px 26px rgba(26, 115, 232, 0.24);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .nav-links a:hover {
+        color: var(--blue);
+      }
+
+      .hero {
+        padding: 56px 0 36px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+        gap: 28px;
+        align-items: stretch;
+      }
+
+      .hero-copy,
+      .hero-side,
+      .section-card,
+      .timeline-card,
+      .skill-card,
+      .contact-card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-copy {
+        padding: 36px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        background: var(--surface-soft);
+        color: var(--blue-deep);
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      h1 {
+        margin: 18px 0 14px;
+        font-size: clamp(34px, 6vw, 58px);
+        line-height: 1.02;
+        font-weight: 800;
+      }
+
+      .hero-copy p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 17px;
+        line-height: 1.8;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .target-role-strip {
+        margin-top: 16px;
+        padding: 14px 16px;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        background: linear-gradient(180deg, rgba(238, 245, 255, 0.92), rgba(255, 255, 255, 0.96));
+      }
+
+      .target-role-strip strong {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--blue-deep);
+        font-size: 14px;
+      }
+
+      .target-role-strip span {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .button {
+        min-height: 46px;
+        padding: 0 18px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+      }
+
+      .button-primary {
+        background: var(--blue);
+        color: #fff;
+        box-shadow: 0 14px 28px rgba(26, 115, 232, 0.24);
+      }
+
+      .button-secondary {
+        background: #fff;
+        color: var(--blue-deep);
+        border: 1px solid var(--line);
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+      }
+
+      .hero-points {
+        margin-top: 28px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .point {
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: linear-gradient(180deg, rgba(238, 245, 255, 0.85), rgba(255, 255, 255, 0.95));
+      }
+
+      .point strong {
+        display: block;
+        font-size: 20px;
+        color: var(--blue-deep);
+        margin-bottom: 6px;
+      }
+
+      .point span {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .expandable-card {
+        cursor: pointer;
+        transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+      }
+
+      .expandable-card:hover {
+        transform: translateY(-3px) scale(1.01);
+        border-color: rgba(26, 115, 232, 0.38);
+        box-shadow: 0 24px 48px rgba(26, 115, 232, 0.16);
+      }
+
+      .expandable-card:focus-visible {
+        outline: 3px solid rgba(26, 115, 232, 0.22);
+        outline-offset: 3px;
+      }
+
+      .hero-side {
+        display: grid;
+        gap: 18px;
+      }
+
+      .side-card {
+        padding: 22px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+
+      .side-card h3 {
+        margin: 0 0 10px;
+        font-size: 20px;
+      }
+
+      .side-card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .interactive-card {
+        position: relative;
+        overflow: hidden;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(239, 247, 255, 0.98)),
+          linear-gradient(135deg, rgba(26, 115, 232, 0.08), rgba(99, 164, 255, 0.08));
+      }
+
+      .interactive-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 18% 24%, rgba(26, 115, 232, 0.12), transparent 22%),
+          radial-gradient(circle at 82% 78%, rgba(99, 164, 255, 0.12), transparent 24%);
+        pointer-events: none;
+      }
+
+      .lab-shell {
+        position: relative;
+        display: grid;
+        gap: 14px;
+        margin-top: 16px;
+      }
+
+      .lab-tabs {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .lab-tab {
+        position: relative;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.86);
+        border-radius: 8px;
+        padding: 14px 12px 12px;
+        text-align: left;
+        cursor: pointer;
+        transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+      }
+
+      .lab-tab:hover {
+        transform: translateY(-2px);
+        border-color: rgba(26, 115, 232, 0.4);
+      }
+
+      .lab-tab.is-active {
+        background: linear-gradient(180deg, rgba(232, 242, 255, 1), rgba(255, 255, 255, 0.96));
+        border-color: rgba(26, 115, 232, 0.52);
+        box-shadow: 0 12px 24px rgba(26, 115, 232, 0.12);
+      }
+
+      .lab-tab-badge {
+        width: 22px;
+        height: 22px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(26, 115, 232, 0.12);
+        color: var(--blue-deep);
+        font-size: 12px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        position: relative;
+      }
+
+      .lab-tab.is-active .lab-tab-badge::after {
+        content: "";
+        position: absolute;
+        inset: -5px;
+        border-radius: 999px;
+        border: 1px solid rgba(26, 115, 232, 0.28);
+        animation: pulse-ring 1.8s ease-out infinite;
+      }
+
+      .lab-tab strong {
+        display: block;
+        color: var(--text);
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+
+      .lab-tab span {
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .lab-stage {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 150px;
+        gap: 14px;
+        align-items: stretch;
+      }
+
+      .lab-panel {
+        padding: 16px 18px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.88);
+        border: 1px solid var(--line);
+        min-height: 106px;
+      }
+
+      .lab-panel strong {
+        display: block;
+        color: var(--blue-deep);
+        font-size: 15px;
+        margin-bottom: 8px;
+      }
+
+      .lab-panel p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .signal-board {
+        position: relative;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        background:
+          linear-gradient(180deg, rgba(239, 247, 255, 0.95), rgba(255, 255, 255, 0.95));
+        overflow: hidden;
+        min-height: 130px;
+      }
+
+      .signal-board::before {
+        content: "";
+        position: absolute;
+        inset: 18px;
+        border-radius: 999px;
+        border: 1px dashed rgba(26, 115, 232, 0.2);
+      }
+
+      .signal-core,
+      .signal-node {
+        position: absolute;
+        border-radius: 999px;
+      }
+
+      .signal-core {
+        width: 38px;
+        height: 38px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: linear-gradient(135deg, #1a73e8, #7bb1ff);
+        box-shadow: 0 10px 24px rgba(26, 115, 232, 0.26);
+      }
+
+      .signal-node {
+        width: 12px;
+        height: 12px;
+        background: rgba(26, 115, 232, 0.18);
+        transition: transform 220ms ease, background 220ms ease, box-shadow 220ms ease;
+      }
+
+      .signal-node.is-active {
+        background: #1a73e8;
+        box-shadow: 0 0 0 8px rgba(26, 115, 232, 0.14);
+        transform: scale(1.1);
+      }
+
+      .signal-node[data-node="0"] {
+        left: 28px;
+        top: 24px;
+      }
+
+      .signal-node[data-node="1"] {
+        right: 24px;
+        top: 48px;
+      }
+
+      .signal-node[data-node="2"] {
+        left: 44px;
+        bottom: 28px;
+      }
+
+      main {
+        padding-bottom: 64px;
+      }
+
+      section {
+        padding: 18px 0;
+      }
+
+      .section-card {
+        padding: 30px;
+      }
+
+      .section-header {
+        margin-bottom: 18px;
+      }
+
+      .section-tag {
+        color: var(--blue);
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        margin: 10px 0 0;
+        font-size: clamp(26px, 4vw, 34px);
+      }
+
+      .section-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.9;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 18px;
+      }
+
+      .timeline-card {
+        padding: 24px;
+      }
+
+      .timeline-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px 14px;
+        margin-bottom: 12px;
+      }
+
+      .timeline-role {
+        font-size: 22px;
+        font-weight: 700;
+      }
+
+      .timeline-company,
+      .timeline-date {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .timeline-card p {
+        color: var(--muted);
+        line-height: 1.85;
+        margin: 0;
+      }
+
+      .skill-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .skill-card {
+        padding: 22px;
+      }
+
+      .skill-card h3 {
+        margin: 0 0 10px;
+        font-size: 18px;
+      }
+
+      .skill-card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .message-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 0.82fr) minmax(280px, 0.48fr);
+        gap: 18px;
+      }
+
+      .contact-card {
+        padding: 22px;
+      }
+
+      .contact-label {
+        color: var(--blue);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .contact-value {
+        margin-top: 10px;
+        font-size: 19px;
+        font-weight: 600;
+        line-height: 1.6;
+      }
+
+      .message-card {
+        padding: 24px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+
+      .message-form {
+        display: grid;
+        gap: 14px;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .field {
+        display: grid;
+        gap: 8px;
+      }
+
+      .field label {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--blue-deep);
+      }
+
+      .field input,
+      .field textarea {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 13px 14px;
+        font: inherit;
+        color: var(--text);
+        background: #fff;
+        outline: none;
+        transition: border-color 160ms ease, box-shadow 160ms ease;
+      }
+
+      .field input:focus,
+      .field textarea:focus {
+        border-color: rgba(26, 115, 232, 0.7);
+        box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.12);
+      }
+
+      .field textarea {
+        min-height: 132px;
+        resize: vertical;
+      }
+
+      .form-note,
+      .message-status {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .message-status {
+        min-height: 24px;
+      }
+
+      .message-status[data-state="success"] {
+        color: #1b7f3b;
+      }
+
+      .message-status[data-state="error"] {
+        color: #c5221f;
+      }
+
+      .detail-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 80;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+        background: rgba(17, 24, 39, 0.42);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 180ms ease;
+      }
+
+      .detail-modal.is-open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .detail-dialog {
+        width: min(720px, 100%);
+        max-height: min(78vh, 760px);
+        overflow: auto;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        box-shadow: 0 32px 80px rgba(17, 24, 39, 0.22);
+        transform: scale(0.96);
+        transition: transform 180ms ease;
+      }
+
+      .detail-modal.is-open .detail-dialog {
+        transform: scale(1);
+      }
+
+      .detail-dialog-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 24px 24px 0;
+      }
+
+      .detail-dialog-title {
+        margin: 0;
+        font-size: clamp(26px, 4vw, 34px);
+      }
+
+      .detail-dialog-meta {
+        margin-top: 8px;
+        color: var(--blue-deep);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.6;
+      }
+
+      .detail-dialog-close {
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: #fff;
+        color: var(--blue-deep);
+        font-size: 22px;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .detail-dialog-body {
+        padding: 18px 24px 24px;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.9;
+        white-space: pre-line;
+      }
+
+      @keyframes pulse-ring {
+        0% {
+          transform: scale(0.94);
+          opacity: 0.75;
+        }
+        70% {
+          transform: scale(1.24);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1.24);
+          opacity: 0;
+        }
+      }
+
+      .footer {
+        color: var(--muted);
+        font-size: 13px;
+        text-align: center;
+        padding: 18px 0 40px;
+      }
+
+      @media (max-width: 980px) {
+        .hero-grid,
+        .skill-grid,
+        .contact-grid,
+        .message-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-points {
+          grid-template-columns: 1fr;
+        }
+
+        .lab-tabs,
+        .lab-stage {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .shell {
+          width: min(calc(100% - 20px), var(--max));
+        }
+
+        .nav {
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          padding: 12px 0;
+        }
+
+        .nav-links {
+          flex-wrap: wrap;
+          gap: 12px;
+        }
+
+        .hero {
+          padding-top: 28px;
+        }
+
+        .hero-copy,
+        .hero-side,
+        .section-card,
+        .timeline-card,
+        .skill-card,
+        .contact-card,
+        .message-card,
+        .side-card {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+
+        h1 {
+          font-size: 38px;
+        }
+      }
+    </style>
   </head>
-  <body data-theme="night">
-    <div class="loading-veil" id="loadingVeil" aria-hidden="true">
-      <div class="loading-copy">
-        <span>Loading Portfolio</span>
-        <strong>Tang Chaoteng</strong>
-      </div>
-    </div>
-    <div class="background-stage" aria-hidden="true">
-      <div class="bg-orb bg-orb-a"></div>
-      <div class="bg-orb bg-orb-b"></div>
-      <div class="bg-orb bg-orb-c"></div>
-      <div class="bg-grid"></div>
-      <div class="bg-matrix bg-matrix-left">0101 1100 0011 1010 0110 1001 0010</div>
-      <div class="bg-matrix bg-matrix-right">CONTENT STRATEGY GROWTH EXECUTION ANALYSIS</div>
-      <div class="bg-scanlines"></div>
-      <div class="bg-pulse bg-pulse-a"></div>
-      <div class="bg-pulse bg-pulse-b"></div>
-      <div class="bg-data-line bg-data-line-a"></div>
-      <div class="bg-data-line bg-data-line-b"></div>
-      <div class="bg-beam bg-beam-a"></div>
-      <div class="bg-beam bg-beam-b"></div>
-      <div class="bg-wordmark">CONTENT OPERATIONS</div>
-      <div class="bg-wordmark bg-wordmark-secondary">TANG CHAOTENG</div>
-    </div>
-    <div class="page-noise" aria-hidden="true"></div>
-    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-    <div class="page-shell">
-      <header class="hero">
-        <nav class="topbar">
-          <span class="brand">汤超腾</span>
-          <div class="topbar-links">
-            <a href="#identitySection">个人介绍</a>
-            <a href="#skillSection">能力展示</a>
-            <a href="#projectSection">项目实践</a>
-            <a href="#contactAnchor">联系入口</a>
-          </div>
-          <button class="ghost-button magnetic-button" id="themeToggle" type="button">切换明暗</button>
+  <body>
+    <header class="topbar">
+      <div class="shell nav">
+        <div class="brand">
+          <span class="brand-badge">汤</span>
+          <span>汤超腾</span>
+        </div>
+        <nav class="nav-links">
+          <a href="#about">个人介绍</a>
+          <a href="#experience">项目经历</a>
+          <a href="#skills">技能专长</a>
+          <a href="#contact">联系方式</a>
         </nav>
+      </div>
+    </header>
 
+    <main class="shell">
+      <section class="hero">
         <div class="hero-grid">
-          <section class="hero-copy reveal-block">
-            <p class="eyebrow">PERSONAL PROFILE</p>
-            <h1>汤超腾，一名持续进入真实业务场景的内容与运营实践者。</h1>
-            <p class="hero-text">
-              杭州师范大学电子商务专业在读，持续积累内容运营、跨境电商与增长相关实践经验。
-              我更在意的是如何把内容表达、执行推进与复盘优化结合起来，形成真正有效的工作方式。
+          <article class="hero-copy">
+            <span class="eyebrow">跨境电商运营 / 内容运营 / TikTok 方向</span>
+            <h1>把内容、平台和转化串成一条清晰增长链路。</h1>
+            <p>
+              我是汤超腾，杭州师范大学电子商务专业在读，持续聚焦跨境电商、内容运营和海外平台增长方向。
+              过去的实践主要围绕 TikTok 电商运营、广告投放协同、达人合作、店铺基础运营和数据复盘展开，
+              我希望把运营执行力、内容理解和数据意识结合起来，做成能真正支撑业务转化的一套能力。
             </p>
-
-            <div class="hero-signals">
-              <span>内容协作</span>
-              <span>跨境电商运营</span>
-              <span>数据复盘优化</span>
-            </div>
-
             <div class="hero-actions">
-              <a class="primary-button magnetic-button" href="#content">查看内容框架</a>
-              <button class="secondary-button magnetic-button" id="contactTrigger" type="button">留下联系方式</button>
+              <a class="button button-primary" href="#contact">联系我</a>
+              <a class="button button-secondary" href="./汤超腾的简历-ATS优化版.pdf">查看简历 PDF</a>
             </div>
-
-            <div class="hero-summary">
-              <div>
-                <span>定位</span>
-                <strong>学生 / 内容运营实践者</strong>
+            <div class="target-role-strip">
+              <strong>目标岗位</strong>
+              <span>跨境电商运营、内容运营、TikTok 运营、平台增长相关方向。</span>
+            </div>
+            <div class="hero-points">
+              <div class="point">
+                <strong>3 段</strong>
+                <span>围绕跨境电商、平台运营和线上销售的实践经历，方向聚焦清晰。</span>
               </div>
-              <div>
-                <span>关注</span>
-                <strong>运营、内容、增长效率</strong>
+              <div class="point">
+                <strong>TikTok</strong>
+                <span>参与广告投放、达人合作、内容推广和核心指标复盘。</span>
+              </div>
+              <div class="point">
+                <strong>转化意识</strong>
+                <span>关注内容传播、用户咨询、投放节奏和结果复盘之间的实际连接。</span>
               </div>
             </div>
-          </section>
+          </article>
 
-          <aside class="hero-panel reveal-block">
-            <div class="panel-badge">PROFILE</div>
-            <h2>关于我</h2>
-            <div class="avatar-wrap">
-              <img
-                class="avatar-image"
-                src="./微信图片_20260704095604_21_6.jpg"
-                alt="汤超腾头像"
-              />
+          <aside class="hero-side">
+            <div class="side-card">
+              <h3>简历与沟通</h3>
+              <p>
+                页面里保留了简洁的在线介绍，完整简历可以通过下方链接直达。
+                如果你来自公司招聘、业务合作或项目沟通，也可以直接在页面底部留言，我会通过飞书接收。
+              </p>
             </div>
-            <ul class="status-list">
-              <li>杭州师范大学电子商务专业，大三在读</li>
-              <li>有 TikTok 电商运营与校园营销实践经验</li>
-              <li>熟悉内容推广、项目执行与基础数据复盘</li>
-            </ul>
-
-            <div class="profile-links">
-              <a class="resume-link magnetic-button" href="./汤超腾的简历%20(2).pdf" target="_blank" rel="noreferrer">
-                查看个人简历
-              </a>
-            </div>
-
-            <div class="mini-stats">
-              <div>
-                <strong data-target="6">0</strong>
-                <span>内容模块</span>
-              </div>
-              <div>
-                <strong data-target="4">0</strong>
-                <span>互动细节</span>
-              </div>
-              <div>
-                <strong data-target="1">0</strong>
-                <span>框架首页</span>
+            <div class="side-card interactive-card">
+              <h3>合作偏好实验室</h3>
+              <p>切换不同合作场景，看看我更适合以什么方式加入，以及我会把注意力放在哪些事情上。</p>
+              <div class="lab-shell" id="lab-widget">
+                <div class="lab-tabs">
+                  <button class="lab-tab is-active" type="button" data-lab="0">
+                    <span class="lab-tab-badge">A</span>
+                    <strong>校招实习</strong>
+                    <span>偏执行、学习快、适应团队节奏</span>
+                  </button>
+                  <button class="lab-tab" type="button" data-lab="1">
+                    <span class="lab-tab-badge">B</span>
+                    <strong>平台运营</strong>
+                    <span>偏内容、流量、转化协同</span>
+                  </button>
+                  <button class="lab-tab" type="button" data-lab="2">
+                    <span class="lab-tab-badge">C</span>
+                    <strong>项目合作</strong>
+                    <span>偏落地、沟通、结果反馈</span>
+                  </button>
+                </div>
+                <div class="lab-stage">
+                  <div class="lab-panel">
+                    <strong id="lab-title">校招实习</strong>
+                    <p id="lab-description">如果岗位需要一个上手快、愿意补基础、能持续复盘执行动作的人，我会把重点放在快速理解业务、稳定承接任务、按节奏交付结果上。</p>
+                  </div>
+                  <div class="signal-board" aria-hidden="true">
+                    <div class="signal-core"></div>
+                    <div class="signal-node is-active" data-node="0"></div>
+                    <div class="signal-node" data-node="1"></div>
+                    <div class="signal-node" data-node="2"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </aside>
         </div>
-      </header>
-
-      <main id="content" class="content">
-        <section class="section-heading reveal-block">
-          <p class="eyebrow">OVERVIEW</p>
-          <h2>核心内容</h2>
-          <p>
-            这一页主要围绕个人介绍、能力展示和项目实践展开，让访客更快理解我的背景、方向和做事方式。
-          </p>
-        </section>
-
-        <section class="impact-ribbon reveal-block" aria-label="核心亮点">
-          <div class="impact-ribbon-track">
-            <span>20% 团队营销业绩指标推进</span>
-            <span>10% 独立业务指标完成</span>
-            <span>TikTok 百万美元级项目参与</span>
-            <span>内容与办公协作</span>
-            <span>校园营销 / 跨境电商 / 数据复盘</span>
-            <span>20% 团队营销业绩指标推进</span>
-            <span>10% 独立业务指标完成</span>
-            <span>TikTok 百万美元级项目参与</span>
-          </div>
-        </section>
-
-        <section class="story-stage reveal-block">
-          <div class="story-visual">
-            <div class="story-photo-frame">
-              <img src="./微信图片_20260704095604_21_6.jpg" alt="汤超腾展示照片" />
-            </div>
-            <div class="story-floating-card">
-              <span>Current Focus</span>
-              <strong>Content + Growth + Execution</strong>
-            </div>
-          </div>
-
-          <div class="story-copy">
-            <p class="eyebrow">PERSONAL STATEMENT</p>
-            <h2>我希望这个网站传递出的，不只是“我做过什么”，还有“我是怎么进入这些真实场景的”。</h2>
-            <p>
-              从校园营销、跨境内容投放到品牌电商运营，我更在意的是如何把信息理解、内容表达、执行推进和复盘优化结合起来，形成真正有用的工作流。
-            </p>
-
-            <div class="story-lines">
-              <div>
-                <span>身份线</span>
-                <strong>学生身份，但持续进入真实业务场景</strong>
-              </div>
-              <div>
-                <span>能力线</span>
-                <strong>内容、运营与复盘能力同步积累</strong>
-              </div>
-              <div>
-                <span>表达线</span>
-                <strong>不只是列经历，而是强调我如何做事</strong>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="filter-bar reveal-block">
-          <button class="filter-chip active" data-filter="all" type="button">全部</button>
-          <button class="filter-chip" data-filter="identity" type="button">个人介绍</button>
-          <button class="filter-chip" data-filter="ai" type="button">能力展示</button>
-          <button class="filter-chip" data-filter="project" type="button">项目实践</button>
-          <button class="filter-chip" data-filter="future" type="button">延展信息</button>
-        </section>
-
-        <section class="card-grid" id="cardGrid">
-          <article class="content-card spotlight-card reveal-block" data-type="identity" id="identitySection">
-            <span class="card-tag">INTRO</span>
-            <h3>个人介绍</h3>
-            <p>
-              我是汤超腾，杭州师范大学电子商务专业学生，正在持续积累内容运营、跨境电商和 AI 应用相关实践经验。
-            </p>
-            <button class="text-button detail-toggle" type="button">展开填写提示</button>
-            <div class="detail-panel">
-              <p>
-                我希望别人认识到的，不只是我是一名学生，而是我是一个能够把工具、内容和实际执行结合起来的人。
-              </p>
-            </div>
-          </article>
-
-          <article class="content-card spotlight-card reveal-block" data-type="ai" id="skillSection">
-            <span class="card-tag">SKILLS</span>
-            <h3>能力展示</h3>
-            <p>
-              我擅长把内容表达、信息整理、办公协作和执行推进结合起来，让想法更快落地成具体结果。
-            </p>
-            <div class="project-pills">
-              <span>内容生成</span>
-              <span>办公协作</span>
-              <span>效率提升</span>
-            </div>
-          </article>
-
-          <article class="content-card spotlight-card reveal-block" data-type="project" id="projectSection">
-            <span class="card-tag">PROJECTS</span>
-            <h3>项目 / 实践经历</h3>
-            <p>
-              这些经历主要来自我在真实业务场景中的运营与执行实践，也构成了我目前最核心的经验基础。
-            </p>
-            <div class="timeline">
-              <div><strong>01</strong><span>中国移动校园营销</span></div>
-              <div><strong>02</strong><span>TikTok 电商运营实习</span></div>
-              <div><strong>03</strong><span>茶叶品牌电商运营</span></div>
-            </div>
-          </article>
-
-          <article class="content-card spotlight-card reveal-block" data-type="identity">
-            <span class="card-tag">TRAITS</span>
-            <h3>个人特质 / 关键词</h3>
-            <p>
-              除了能力和经历，我也希望自己给人的感觉是踏实、学习快、执行力强，并且愿意在真实任务里持续迭代。
-            </p>
-            <div class="project-pills">
-              <span>学习能力</span>
-              <span>执行力</span>
-              <span>数据意识</span>
-            </div>
-          </article>
-
-          <article class="content-card spotlight-card reveal-block" data-type="future" id="contactAnchor">
-            <span class="card-tag">NEXT</span>
-            <h3>联系入口</h3>
-            <p>
-              如果你对我的经历、项目或 AI 应用方向感兴趣，可以直接留下联系方式。
-            </p>
-            <button class="text-button magnetic-button" id="contactCardTrigger" type="button">现在就留下联系方式</button>
-          </article>
-        </section>
-
-        <section class="spotlight-layout reveal-block">
-          <div class="spotlight-heading">
-            <p class="eyebrow">PROJECT SNAPSHOT</p>
-            <h2>项目聚焦</h2>
-            <p>
-              这里是我目前最具代表性的三段经历，它们分别来自校园营销、跨境内容投放和品牌电商运营场景。
-            </p>
-          </div>
-
-          <div class="spotlight-switcher" role="tablist" aria-label="项目聚焦切换">
-            <button class="spotlight-button active" data-case="mobile" type="button">中国移动校园营销</button>
-            <button class="spotlight-button" data-case="tiktok" type="button">TikTok 电商运营</button>
-            <button class="spotlight-button" data-case="tea" type="button">茶叶品牌电商运营</button>
-          </div>
-
-          <div class="spotlight-panel active" data-case-panel="mobile">
-            <div class="spotlight-metrics">
-              <div><span>场景</span><strong>校园获客</strong></div>
-              <div><span>动作</span><strong>社媒推广 + 用户转化</strong></div>
-              <div><span>结果</span><strong>协同推进 20%</strong></div>
-            </div>
-            <p>
-              牵头组建校园营销项目小组，围绕高校新生推广移动通信套餐，结合抖音、小红书、贴吧等渠道进行内容推广与引流。
-            </p>
-          </div>
-
-          <div class="spotlight-panel" data-case-panel="tiktok">
-            <div class="spotlight-metrics">
-              <div><span>场景</span><strong>跨境内容投放</strong></div>
-              <div><span>动作</span><strong>广告优化 + 达人合作</strong></div>
-              <div><span>结果</span><strong>百万美元级项目参与</strong></div>
-            </div>
-            <p>
-              参与 PatPat TikTok 百万美元级营销项目，负责广告投放、达人合作、内容推广与核心数据指标跟踪，持续优化转化效率。
-            </p>
-          </div>
-
-          <div class="spotlight-panel" data-case-panel="tea">
-            <div class="spotlight-metrics">
-              <div><span>场景</span><strong>传统品牌线上化</strong></div>
-              <div><span>动作</span><strong>店铺搭建 + 详情优化</strong></div>
-              <div><span>结果</span><strong>从 0 到 1 补齐基础运营</strong></div>
-            </div>
-            <p>
-              协助茶叶品牌搭建淘宝销售渠道，完成店铺注册、商品上架、详情页优化与基础运营，让传统商家更顺利进入线上销售流程。
-            </p>
-          </div>
-        </section>
-
-        <section class="process-grid reveal-block">
-          <article class="process-card">
-            <p class="eyebrow">HOW I WORK</p>
-            <h3>我处理内容和运营任务的方式</h3>
-            <div class="process-steps">
-              <div><strong>01</strong><span>先理解目标和人群</span></div>
-              <div><strong>02</strong><span>再整理信息和推进执行</span></div>
-              <div><strong>03</strong><span>最后靠执行和复盘做优化</span></div>
-            </div>
-          </article>
-        </section>
-
-        <section class="quote-wall reveal-block">
-          <div class="quote-card">
-            <p class="eyebrow">FOCUS</p>
-            <h3>我更关心的是，内容和执行能不能真正推动结果。</h3>
-          </div>
-          <div class="quote-card">
-            <p class="eyebrow">STYLE</p>
-            <h3>我更在意内容、执行和复盘能不能形成完整闭环。</h3>
-          </div>
-        </section>
-
-        <section class="cta-band reveal-block">
-          <div>
-            <p class="eyebrow">CONTACT</p>
-            <h2>如果你对我的经历和项目感兴趣，欢迎直接留下联系方式。</h2>
-          </div>
-          <button class="primary-button magnetic-button" type="button" data-contact-open="true">发送给我联系方式</button>
-        </section>
-      </main>
-    </div>
-
-    <div class="contact-modal" id="contactModal" aria-hidden="true">
-      <div class="contact-backdrop" data-close-modal="true"></div>
-      <section class="contact-dialog" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
-        <button class="modal-close" id="contactClose" type="button" aria-label="关闭">×</button>
-        <p class="eyebrow">CONTACT</p>
-        <h2 id="contactTitle">附上你的联系方式</h2>
-        <p class="contact-copy">
-          选一种方式留下你的联系方式，我会尽快查看。
-        </p>
-
-        <form class="contact-form" id="contactForm">
-          <div class="contact-options">
-            <label class="contact-option">
-              <input type="radio" name="contactType" value="微信" checked />
-              <span>微信</span>
-            </label>
-            <label class="contact-option">
-              <input type="radio" name="contactType" value="电话" />
-              <span>电话</span>
-            </label>
-            <label class="contact-option">
-              <input type="radio" name="contactType" value="QQ" />
-              <span>QQ</span>
-            </label>
-          </div>
-
-          <label class="contact-field" for="contactValue">
-            <span id="contactLabel">微信号</span>
-            <input
-              id="contactValue"
-              name="contactValue"
-              type="text"
-              placeholder="请输入你的微信号"
-              required
-            />
-          </label>
-
-          <button class="contact-submit magnetic-button" type="submit">发送联系方式</button>
-        </form>
       </section>
+
+      <section id="about">
+        <article class="section-card expandable-card" tabindex="0" data-detail-title="个人介绍" data-detail-meta="About" data-detail-body="我目前就读于杭州师范大学电子商务专业，主修课程覆盖网络营销、跨境电商、新媒体运营、商务数据分析、消费者行为学和供应链管理。我的求职方向集中在跨境电商运营、TikTok 运营、内容运营和海外营销助理岗位。相比泛泛而谈的“会运营”，我更在意把一个实际业务场景拆解清楚：平台上用户是怎么被吸引的，内容是怎么被测试和优化的，广告与达人合作怎样配合转化，以及数据复盘最后怎样反过来指导下一轮动作。">
+          <div class="section-header">
+            <div class="section-tag">About</div>
+            <h2>个人介绍</h2>
+          </div>
+          <p>
+            我目前就读于杭州师范大学电子商务专业，主修课程覆盖网络营销、跨境电商、新媒体运营、商务数据分析、消费者行为学和供应链管理。
+            我的求职方向集中在跨境电商运营、TikTok 运营、内容运营和海外营销助理岗位。相比泛泛而谈的“会运营”，我更在意把一个实际业务场景拆解清楚：
+            平台上用户是怎么被吸引的，内容是怎么被测试和优化的，广告与达人合作怎样配合转化，以及数据复盘最后怎样反过来指导下一轮动作。
+          </p>
+        </article>
+      </section>
+
+      <section id="experience">
+        <div class="section-card expandable-card" style="margin-bottom: 18px;" tabindex="0" data-detail-title="项目经历" data-detail-meta="Experience" data-detail-body="我的经历都围绕“流量获取、内容协同、转化优化”这条主线展开。下面几段项目和实习经历，基本构成了我对平台运营、电商执行和用户增长的第一套实践理解。点击下面每一段经历，可以查看放大后的详情。">
+          <div class="section-header">
+            <div class="section-tag">Experience</div>
+            <h2>项目经历</h2>
+          </div>
+          <p>
+            我的经历都围绕“流量获取、内容协同、转化优化”这条主线展开。下面几段项目和实习经历，
+            基本构成了我对平台运营、电商执行和用户增长的第一套实践理解。
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-card expandable-card" tabindex="0" data-detail-title="TikTok 电商运营实习生" data-detail-meta="杭州出海引擎科技有限公司 | 2025.10 - 2026.06" data-detail-body="参与 PatPat TikTok 营销项目，协助推进美国市场的广告投放、达人合作与内容推广工作。\n\n日常重点放在广告素材测试、投放数据跟踪、效果复盘和高转化内容方向整理上，接触 CTR、CVR、ROAS 等核心指标，也参与达人筛选、建联沟通、合作推进和内容发布协同。\n\n这段经历让我真正开始理解海外平台内容生态、投放节奏与转化逻辑之间的关系。">
+            <div class="timeline-meta">
+              <span class="timeline-role">TikTok 电商运营实习生</span>
+              <span class="timeline-company">杭州出海引擎科技有限公司</span>
+              <span class="timeline-date">2025.10 - 2026.06</span>
+            </div>
+            <p>
+              参与 PatPat TikTok 营销项目，协助推进美国市场的广告投放、达人合作与内容推广工作。
+              日常重点放在广告素材测试、投放数据跟踪、效果复盘和高转化内容方向整理上，
+              接触 CTR、CVR、ROAS 等核心指标，也参与达人筛选、建联沟通、合作推进和内容发布协同。
+              这段经历让我真正开始理解海外平台内容生态、投放节奏与转化逻辑之间的关系。
+            </p>
+          </article>
+
+          <article class="timeline-card expandable-card" tabindex="0" data-detail-title="产品营销岗位" data-detail-meta="中国移动杭州余杭分公司 | 2025.06 - 2026.09" data-detail-body="牵头组建校园营销项目小组，围绕高校新生套餐推广做内容传播、用户引流和售前沟通。\n\n渠道覆盖抖音、小红书、贴吧等社媒平台，协同团队完成公司当月 20% 营销业绩指标，个人独立完成当月 10% 业务指标。\n\n项目过程中，我负责卖点梳理、推广话术优化、用户咨询跟进、反馈整理与运营复盘，这段经历帮助我把“内容传播”和“实际转化”更紧密地连到一起。">
+            <div class="timeline-meta">
+              <span class="timeline-role">产品营销岗位</span>
+              <span class="timeline-company">中国移动杭州余杭分公司</span>
+              <span class="timeline-date">2025.06 - 2026.09</span>
+            </div>
+            <p>
+              牵头组建校园营销项目小组，围绕高校新生套餐推广做内容传播、用户引流和售前沟通。
+              渠道覆盖抖音、小红书、贴吧等社媒平台，协同团队完成公司当月 20% 营销业绩指标，
+              个人独立完成当月 10% 业务指标。项目过程中，我负责卖点梳理、推广话术优化、用户咨询跟进、
+              反馈整理与运营复盘，这段经历帮助我把“内容传播”和“实际转化”更紧密地连到一起。
+            </p>
+          </article>
+
+          <article class="timeline-card expandable-card" tabindex="0" data-detail-title="电商运营兼职" data-detail-meta="安吉千米茶叶有限公司 | 2025.04 - 至今" data-detail-body="协助传统茶叶商家搭建淘宝线上销售渠道，从店铺注册、商品上架到详情页优化、条形码申请和后台维护都实际跟进过。\n\n这段兼职让我接触到店铺基础运营最朴素也最重要的一面：信息整理、页面展示、流程规范和日常维护。\n\n相比偏增长导向的平台项目，这份经历更像电商底层能力的补全。">
+            <div class="timeline-meta">
+              <span class="timeline-role">电商运营兼职</span>
+              <span class="timeline-company">安吉千米茶叶有限公司</span>
+              <span class="timeline-date">2025.04 - 至今</span>
+            </div>
+            <p>
+              协助传统茶叶商家搭建淘宝线上销售渠道，从店铺注册、商品上架到详情页优化、条形码申请和后台维护都实际跟进过。
+              这段兼职让我接触到店铺基础运营最朴素也最重要的一面：信息整理、页面展示、流程规范和日常维护。
+              相比偏增长导向的平台项目，这份经历更像电商底层能力的补全。
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="section-card expandable-card" style="margin-bottom: 18px;" tabindex="0" data-detail-title="技能专长" data-detail-meta="Skills" data-detail-body="我的技能结构不是单点工具型，而是围绕实际运营场景形成的组合能力：平台理解、内容协同、基础数据分析、办公效率工具和跨团队执行。点击下面每一项技能，可以查看更完整的说明。">
+          <div class="section-header">
+            <div class="section-tag">Skills</div>
+            <h2>技能专长</h2>
+          </div>
+          <p>
+            我的技能结构不是单点工具型，而是围绕实际运营场景形成的组合能力：
+            平台理解、内容协同、基础数据分析、办公效率工具和跨团队执行。
+          </p>
+        </div>
+
+        <div class="skill-grid">
+          <article class="skill-card expandable-card" tabindex="0" data-detail-title="平台与内容运营" data-detail-meta="Skills" data-detail-body="熟悉 TikTok、小红书等内容平台生态，理解短视频内容分发、素材方向选择和基础用户转化逻辑，能围绕平台场景配合内容推广和运营执行。">
+            <h3>平台与内容运营</h3>
+            <p>
+              熟悉 TikTok、小红书等内容平台生态，理解短视频内容分发、素材方向选择和基础用户转化逻辑，
+              能围绕平台场景配合内容推广和运营执行。
+            </p>
+          </article>
+
+          <article class="skill-card expandable-card" tabindex="0" data-detail-title="广告与数据复盘" data-detail-meta="Skills" data-detail-body="接触过 CTR、CVR、ROAS 等核心指标，能配合完成广告素材测试、数据监控、简单复盘和高转化内容方向整理，对“数据驱动优化动作”有基础理解。">
+            <h3>广告与数据复盘</h3>
+            <p>
+              接触过 CTR、CVR、ROAS 等核心指标，能配合完成广告素材测试、数据监控、简单复盘和高转化内容方向整理，
+              对“数据驱动优化动作”有基础理解。
+            </p>
+          </article>
+
+          <article class="skill-card expandable-card" tabindex="0" data-detail-title="电商基础运营" data-detail-meta="Skills" data-detail-body="了解店铺搭建、商品上架、详情页优化、后台维护和日常运营流程，能够从执行层面支持传统商家向线上销售迁移。">
+            <h3>电商基础运营</h3>
+            <p>
+              了解店铺搭建、商品上架、详情页优化、后台维护和日常运营流程，能够从执行层面支持传统商家向线上销售迁移。
+            </p>
+          </article>
+
+          <article class="skill-card expandable-card" tabindex="0" data-detail-title="办公与协同工具" data-detail-meta="Skills" data-detail-body="熟练使用 Excel、PPT、WPS 等办公软件，能够用这些工具完成资料整理、信息归纳、表格跟进和跨团队协作支持。">
+            <h3>办公与协同工具</h3>
+            <p>
+              熟练使用 Excel、PPT、WPS 等办公软件，能够完成资料整理、信息归纳和团队协作支持。
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="section-card expandable-card" style="margin-bottom: 18px;" tabindex="0" data-detail-title="联系方式" data-detail-meta="Contact" data-detail-body="如果你正在寻找跨境电商运营、内容运营、TikTok 方向或平台增长相关岗位候选人，欢迎直接联系我。我很愿意进一步沟通项目经历、学习方向和适合的岗位场景。你也可以通过页面下方的企业留言表单，把岗位方向和联系方式直接发到我的飞书。">
+          <div class="section-header">
+            <div class="section-tag">Contact</div>
+            <h2>联系方式</h2>
+          </div>
+          <p>
+            如果你正在寻找跨境电商运营、内容运营、TikTok 方向或平台增长相关岗位候选人，
+            欢迎直接联系我。我很愿意进一步沟通项目经历、学习方向和适合的岗位场景。
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <article class="contact-card">
+            <div class="contact-label">电话</div>
+            <div class="contact-value">18968422830</div>
+          </article>
+          <article class="contact-card">
+            <div class="contact-label">邮箱</div>
+            <div class="contact-value">1084174805@qq.com</div>
+          </article>
+          <article class="contact-card">
+            <div class="contact-label">地点</div>
+            <div class="contact-value">浙江台州 / 杭州</div>
+          </article>
+        </div>
+
+        <div class="message-layout" style="margin-top: 18px;">
+          <article class="message-card">
+            <div class="section-header">
+              <div class="section-tag">Message</div>
+              <h2>企业留言</h2>
+            </div>
+            <form class="message-form" id="lead-form">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="company">公司名称</label>
+                  <input id="company" name="company" type="text" placeholder="例如：某某科技有限公司" required />
+                </div>
+                <div class="field">
+                  <label for="name">联系人</label>
+                  <input id="name" name="name" type="text" placeholder="例如：张女士" required />
+                </div>
+                <div class="field">
+                  <label for="role">岗位 / 合作方向</label>
+                  <input id="role" name="role" type="text" placeholder="例如：TikTok 运营实习生" required />
+                </div>
+                <div class="field">
+                  <label for="contact">联系方式</label>
+                  <input id="contact" name="contact" type="text" placeholder="手机号、微信或邮箱" required />
+                </div>
+              </div>
+              <div class="field">
+                <label for="message">留言内容</label>
+                <textarea id="message" name="message" placeholder="欢迎留下岗位介绍、沟通时间或其他说明" required></textarea>
+              </div>
+              <div class="hero-actions" style="margin-top: 0;">
+                <button class="button button-primary" type="submit">发送到飞书</button>
+              </div>
+              <div class="message-status" id="message-status" aria-live="polite"></div>
+            </form>
+          </article>
+
+          <aside class="side-card">
+            <h3>接收方式说明</h3>
+            <p>
+              这个表单已经预留好了飞书消息推送逻辑。你只需要把页面脚本里的飞书机器人 Webhook 地址填进去，
+              页面收到留言后就会把公司名称、联系人、联系方式和留言内容直接发到你的飞书群或机器人会话里。
+            </p>
+            <p class="form-note" style="margin-top: 12px;">
+              当前站点是静态页面版本，部署到线上后使用体验会更完整；本地打开时如果飞书或浏览器限制跨域，请把同样的代码放到正常网站环境里使用。
+            </p>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <div class="shell footer">
+      本页基于个人简历信息整理，用于个人展示与岗位沟通。
     </div>
+    <div class="detail-modal" id="detail-modal" aria-hidden="true">
+      <div class="detail-dialog" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+        <div class="detail-dialog-header">
+          <div>
+            <h3 class="detail-dialog-title" id="detail-title"></h3>
+            <div class="detail-dialog-meta" id="detail-meta"></div>
+          </div>
+          <button class="detail-dialog-close" id="detail-close" type="button" aria-label="关闭详情">×</button>
+        </div>
+        <div class="detail-dialog-body" id="detail-body"></div>
+      </div>
+    </div>
+    <script>
+      const MESSAGE_API_URL = "/api/message";
 
-    <aside class="contact-toast" id="contactToast" aria-live="polite">
-      <strong>已成功发送通知</strong>
-      <span>等待帅哥同意</span>
-    </aside>
+      const leadForm = document.getElementById("lead-form");
+      const messageStatus = document.getElementById("message-status");
+      const detailModal = document.getElementById("detail-modal");
+      const detailTitle = document.getElementById("detail-title");
+      const detailMeta = document.getElementById("detail-meta");
+      const detailBody = document.getElementById("detail-body");
+      const detailClose = document.getElementById("detail-close");
+      const expandableCards = Array.from(document.querySelectorAll(".expandable-card"));
+      const labTabs = Array.from(document.querySelectorAll(".lab-tab"));
+      const labTitle = document.getElementById("lab-title");
+      const labDescription = document.getElementById("lab-description");
+      const signalNodes = Array.from(document.querySelectorAll(".signal-node"));
+      const labContent = [
+        {
+          title: "校招实习",
+          description: "如果岗位需要一个上手快、愿意补基础、能持续复盘执行动作的人，我会把重点放在快速理解业务、稳定承接任务、按节奏交付结果上。"
+        },
+        {
+          title: "平台运营",
+          description: "如果岗位重点在内容推广、广告协同、达人合作和基础数据复盘，我会更适合放在流量与转化链路中间，做执行和优化连接。"
+        },
+        {
+          title: "项目合作",
+          description: "如果是偏短周期的项目合作，我更适合承担内容整理、流程推进、对接反馈和基础运营支持，让事情往前走并且有可回看的结果。"
+        }
+      ];
 
-    <script src="./script.js?v=20260704-7"></script>
+      function setLabMode(index) {
+        labTabs.forEach((tab, currentIndex) => {
+          tab.classList.toggle("is-active", currentIndex === index);
+        });
+        signalNodes.forEach((node, currentIndex) => {
+          node.classList.toggle("is-active", currentIndex === index);
+        });
+        labTitle.textContent = labContent[index].title;
+        labDescription.textContent = labContent[index].description;
+      }
+
+      labTabs.forEach((tab) => {
+        tab.addEventListener("mouseenter", () => {
+          setLabMode(Number(tab.dataset.lab));
+        });
+        tab.addEventListener("focus", () => {
+          setLabMode(Number(tab.dataset.lab));
+        });
+        tab.addEventListener("click", () => {
+          setLabMode(Number(tab.dataset.lab));
+        });
+      });
+
+      function setStatus(message, state) {
+        messageStatus.textContent = message;
+        messageStatus.dataset.state = state || "";
+      }
+
+      function openDetail(card) {
+        detailTitle.textContent = card.dataset.detailTitle || "";
+        detailMeta.textContent = card.dataset.detailMeta || "";
+        detailBody.textContent = card.dataset.detailBody || "";
+        detailModal.classList.add("is-open");
+        detailModal.setAttribute("aria-hidden", "false");
+      }
+
+      function closeDetail() {
+        detailModal.classList.remove("is-open");
+        detailModal.setAttribute("aria-hidden", "true");
+      }
+
+      expandableCards.forEach((card) => {
+        card.addEventListener("click", (event) => {
+          if (event.target.closest("a, button, input, textarea, label")) {
+            return;
+          }
+          openDetail(card);
+        });
+
+        card.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openDetail(card);
+          }
+        });
+      });
+
+      detailClose.addEventListener("click", closeDetail);
+      detailModal.addEventListener("click", (event) => {
+        if (event.target === detailModal) {
+          closeDetail();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && detailModal.classList.contains("is-open")) {
+          closeDetail();
+        }
+      });
+
+      leadForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(leadForm);
+        const payload = {
+          company: String(formData.get("company") || "").trim(),
+          name: String(formData.get("name") || "").trim(),
+          role: String(formData.get("role") || "").trim(),
+          contact: String(formData.get("contact") || "").trim(),
+          message: String(formData.get("message") || "").trim()
+        };
+
+        setStatus("正在发送到飞书...", "");
+
+        try {
+          const response = await fetch(MESSAGE_API_URL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+          });
+
+          const result = await response.json();
+
+          if (!response.ok || !result.ok) {
+            throw new Error(result.error || `HTTP ${response.status}`);
+          }
+
+          leadForm.reset();
+          setStatus("留言已发送到飞书。", "success");
+        } catch (error) {
+          setStatus(`发送失败：${error.message}`, "error");
+          console.error(error);
+        }
+      });
+    </script>
   </body>
 </html>

@@ -1,6 +1,5 @@
 {
-  "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "tang-chaoteng-personal-site",
-  "pages_build_output_dir": "./dist",
-  "compatibility_date": "2026-07-04"
+  "name": "tangchaoteng-profile-site",
+  "compatibility_date": "2026-07-06",
+  "pages_build_output_dir": "."
 }
