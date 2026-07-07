@@ -525,6 +525,52 @@
         margin: 0;
       }
 
+      .report-showcase {
+        margin-top: 18px;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: linear-gradient(180deg, rgba(238, 245, 255, 0.88), rgba(255, 255, 255, 0.98));
+      }
+
+      .report-showcase-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .report-showcase-title {
+        margin: 0;
+        font-size: 16px;
+        color: var(--blue-deep);
+      }
+
+      .report-showcase-note {
+        margin: 0 0 12px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .report-showcase-frame {
+        width: 100%;
+        height: 360px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        overflow: hidden;
+      }
+
+      .report-showcase-frame iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+      }
+
       .skill-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -933,7 +979,7 @@
         </div>
 
         <div class="timeline">
-          <article class="timeline-card expandable-card" tabindex="0" data-detail-title="TikTok 电商运营实习生" data-detail-meta="杭州出海引擎科技有限公司 | 2025.10 - 2026.06" data-detail-body="参与 PatPat TikTok 营销项目，协助推进美国市场的广告投放、达人合作与内容推广工作。\n\n日常重点放在广告素材测试、投放数据跟踪、效果复盘和高转化内容方向整理上，接触 CTR、CVR、ROAS 等核心指标，也参与达人筛选、建联沟通、合作推进和内容发布协同。\n\n这段经历让我真正开始理解海外平台内容生态、投放节奏与转化逻辑之间的关系。">
+          <article class="timeline-card expandable-card" tabindex="0" data-detail-title="TikTok 电商运营实习生" data-detail-meta="杭州出海引擎科技有限公司 | 2025.10 - 2026.06" data-detail-body="参与 PatPat TikTok 营销项目，协助推进美国市场的广告投放、达人合作与内容推广工作。\n\n日常重点放在广告素材测试、投放数据跟踪、效果复盘和高转化内容方向整理上，接触 CTR、CVR、ROAS 等核心指标，也参与达人筛选、建联沟通、合作推进和内容发布协同。\n\n我也整理过店铺数据报表，用来观察经营表现和关键指标变化。\n\n这段经历让我真正开始理解海外平台内容生态、投放节奏与转化逻辑之间的关系。">
             <div class="timeline-meta">
               <span class="timeline-role">TikTok 电商运营实习生</span>
               <span class="timeline-company">杭州出海引擎科技有限公司</span>
@@ -945,6 +991,23 @@
               接触 CTR、CVR、ROAS 等核心指标，也参与达人筛选、建联沟通、合作推进和内容发布协同。
               这段经历让我真正开始理解海外平台内容生态、投放节奏与转化逻辑之间的关系。
             </p>
+            <div class="report-showcase no-expand">
+              <div class="report-showcase-head">
+                <h4 class="report-showcase-title">店铺数据报表展示</h4>
+                <a class="button button-secondary" href="https://app.operax.ai/report/flri7ala4mv1d52f" target="_blank" rel="noreferrer">新标签打开报表</a>
+              </div>
+              <p class="report-showcase-note">
+                这是我整理的店铺数据报表示例，放在这里用来展示我在业务实践里接触过的数据观察与复盘工作。
+              </p>
+              <div class="report-showcase-frame">
+                <iframe
+                  src="https://app.operax.ai/report/flri7ala4mv1d52f"
+                  title="店铺数据报表"
+                  loading="lazy"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                ></iframe>
+              </div>
+            </div>
           </article>
 
           <article class="timeline-card expandable-card" tabindex="0" data-detail-title="产品营销岗位" data-detail-meta="中国移动杭州余杭分公司 | 2025.06 - 2026.09" data-detail-body="牵头组建校园营销项目小组，围绕高校新生套餐推广做内容传播、用户引流和售前沟通。\n\n渠道覆盖抖音、小红书、贴吧等社媒平台，协同团队完成公司当月 20% 营销业绩指标，个人独立完成当月 10% 业务指标。\n\n项目过程中，我负责卖点梳理、推广话术优化、用户咨询跟进、反馈整理与运营复盘，这段经历帮助我把“内容传播”和“实际转化”更紧密地连到一起。">
@@ -1186,7 +1249,7 @@
 
       expandableCards.forEach((card) => {
         card.addEventListener("click", (event) => {
-          if (event.target.closest("a, button, input, textarea, label")) {
+          if (event.target.closest("a, button, input, textarea, label, .no-expand")) {
             return;
           }
           openDetail(card);
