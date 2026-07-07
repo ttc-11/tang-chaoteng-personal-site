@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tang-chaoteng-personal-site",
+  "compatibility_date": "2026-07-07",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "personal-site"
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}
