@@ -533,6 +533,46 @@
         background: linear-gradient(180deg, rgba(238, 245, 255, 0.88), rgba(255, 255, 255, 0.98));
       }
 
+      .report-showcase-group {
+        margin-top: 18px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: linear-gradient(180deg, rgba(232, 242, 255, 0.9), rgba(255, 255, 255, 0.98));
+      }
+
+      .report-showcase-group-head {
+        display: grid;
+        gap: 10px;
+        margin-bottom: 16px;
+      }
+
+      .report-showcase-group-title {
+        margin: 0;
+        font-size: 18px;
+        color: var(--blue-deep);
+      }
+
+      .report-showcase-group-note {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .report-case-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .report-case-card {
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.96);
+      }
+
       .report-showcase-head {
         display: flex;
         flex-wrap: wrap;
@@ -914,6 +954,10 @@
         .report-preview-shell {
           grid-template-columns: 1fr;
         }
+
+        .report-case-grid {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (max-width: 720px) {
@@ -1096,101 +1140,104 @@
               接触 CTR、CVR、ROAS 等核心指标，也参与达人筛选、建联沟通、合作推进和内容发布协同。
               这段经历让我真正开始理解海外平台内容生态、投放节奏与转化逻辑之间的关系。
             </p>
-            <div class="report-showcase no-expand">
-              <div class="report-showcase-head">
-                <h4 class="report-showcase-title">店铺数据报表展示</h4>
-                <a class="button button-secondary" href="https://app.operax.ai/report/flri7ala4mv1d52f" target="_blank" rel="noreferrer">新标签打开报表</a>
+            <div class="report-showcase-group no-expand">
+              <div class="report-showcase-group-head">
+                <h4 class="report-showcase-group-title">数据分析案例</h4>
+                <p class="report-showcase-group-note">
+                  在出海引擎实习期间，我接触并整理过不止一份店铺数据报表。下面这两个案例一起构成了我在跨境业务场景里的数据观察样本，
+                  也更完整地反映了我对经营表现、结果趋势和复盘思路的初步理解。
+                </p>
               </div>
-              <p class="report-showcase-note">
-                这是我整理的店铺数据报表示例，放在这里用来展示我在业务实践里接触过的数据观察与复盘工作。
-              </p>
-              <div class="report-showcase-frame">
-                <div class="report-preview-shell">
-                  <div class="report-preview-panel">
-                    <span class="report-preview-badge">数据报表案例</span>
-                    <h5 class="report-preview-heading">店铺经营报表整理与结果观察</h5>
-                    <p class="report-preview-text">
-                      这个报表来自我在业务实践里接触的数据复盘工作。由于 Operax 报表页不适合直接嵌入网页预览，这里改成更稳定的案例展示卡，
-                      重点体现我对店铺数据、经营表现和复盘思路的接触与理解。
-                    </p>
-                    <div class="report-preview-list">
-                      <div class="report-preview-item">
-                        <strong>经营观察：</strong>关注店铺整体走势，理解阶段性波动和运营动作之间的关系。
-                      </div>
-                      <div class="report-preview-item">
-                        <strong>数据复盘：</strong>把结果变化和内容、投放、商品表现放在一起看，而不是只看单点数字。
-                      </div>
-                      <div class="report-preview-item">
-                        <strong>工作方式：</strong>我更习惯把报表当成经营反馈入口，用来支撑下一轮优化判断。
-                      </div>
-                    </div>
+              <div class="report-case-grid">
+                <div class="report-case-card">
+                  <div class="report-showcase-head">
+                    <h4 class="report-showcase-title">案例一：店铺经营报表</h4>
+                    <a class="button button-secondary" href="https://app.operax.ai/report/flri7ala4mv1d52f" target="_blank" rel="noreferrer">打开报表</a>
                   </div>
-                  <div class="report-preview-side">
-                    <div class="report-metric">
-                      <span>报表类型</span>
-                      <strong>店铺经营数据</strong>
-                    </div>
-                    <div class="report-metric">
-                      <span>使用场景</span>
-                      <strong>复盘与观察</strong>
-                    </div>
-                    <div class="report-metric">
-                      <span>平台入口</span>
-                      <strong>Operax Report</strong>
-                    </div>
-                    <a class="report-open-link" href="https://app.operax.ai/report/flri7ala4mv1d52f" target="_blank" rel="noreferrer">打开完整报表</a>
-                    <div class="report-preview-caption">
-                      如果需要查看原始明细与完整图表，可点击按钮在新标签页打开。
+                  <div class="report-showcase-frame">
+                    <div class="report-preview-shell">
+                      <div class="report-preview-panel">
+                        <span class="report-preview-badge">数据报表案例</span>
+                        <h5 class="report-preview-heading">店铺经营报表整理与结果观察</h5>
+                        <p class="report-preview-text">
+                          这个报表来自我在业务实践里接触的数据复盘工作。由于 Operax 报表页不适合直接嵌入网页预览，这里改成更稳定的案例展示卡，
+                          重点体现我对店铺数据、经营表现和复盘思路的接触与理解。
+                        </p>
+                        <div class="report-preview-list">
+                          <div class="report-preview-item">
+                            <strong>经营观察：</strong>关注店铺整体走势，理解阶段性波动和运营动作之间的关系。
+                          </div>
+                          <div class="report-preview-item">
+                            <strong>数据复盘：</strong>把结果变化和内容、投放、商品表现放在一起看，而不是只看单点数字。
+                          </div>
+                          <div class="report-preview-item">
+                            <strong>工作方式：</strong>我更习惯把报表当成经营反馈入口，用来支撑下一轮优化判断。
+                          </div>
+                        </div>
+                      </div>
+                      <div class="report-preview-side">
+                        <div class="report-metric">
+                          <span>报表类型</span>
+                          <strong>店铺经营数据</strong>
+                        </div>
+                        <div class="report-metric">
+                          <span>使用场景</span>
+                          <strong>复盘与观察</strong>
+                        </div>
+                        <div class="report-metric">
+                          <span>平台入口</span>
+                          <strong>Operax Report</strong>
+                        </div>
+                        <div class="report-preview-caption">
+                          需要查看原始明细与完整图表时，可直接打开原始报表页面。
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="report-showcase no-expand">
-              <div class="report-showcase-head">
-                <h4 class="report-showcase-title">Devacurl 店铺报表展示</h4>
-                <a class="button button-secondary" href="https://app.operax.ai/report/8td0ra3tq54udyi9" target="_blank" rel="noreferrer">新标签打开报表</a>
-              </div>
-              <p class="report-showcase-note">
-                这份 Devacurl 报表同样归属于我在出海引擎实习期间接触的数据案例，用来补充展示我在跨境业务场景下的数据观察与复盘工作。
-              </p>
-              <div class="report-showcase-frame">
-                <div class="report-preview-shell">
-                  <div class="report-preview-panel">
-                    <span class="report-preview-badge">第二份数据案例</span>
-                    <h5 class="report-preview-heading">Devacurl 数据报表与经营表现观察</h5>
-                    <p class="report-preview-text">
-                      这份报表对应的是我在出海引擎实习阶段接触的另一组店铺数据样本。放在这里，是为了说明我不只是看过一份单独报表，
-                      而是开始在不同店铺案例里理解经营变化、数据趋势和后续优化思路。
-                    </p>
-                    <div class="report-preview-list">
-                      <div class="report-preview-item">
-                        <strong>案例补充：</strong>和前一份店铺报表一起，形成更完整的数据观察样本。
-                      </div>
-                      <div class="report-preview-item">
-                        <strong>经营视角：</strong>从结果走势去理解不同阶段的运营表现和关键变化。
-                      </div>
-                      <div class="report-preview-item">
-                        <strong>复盘能力：</strong>逐步建立对报表、经营表现和后续动作之间关系的理解。
-                      </div>
-                    </div>
+                <div class="report-case-card">
+                  <div class="report-showcase-head">
+                    <h4 class="report-showcase-title">案例二：Devacurl 报表</h4>
+                    <a class="button button-secondary" href="https://app.operax.ai/report/8td0ra3tq54udyi9" target="_blank" rel="noreferrer">打开报表</a>
                   </div>
-                  <div class="report-preview-side">
-                    <div class="report-metric">
-                      <span>案例来源</span>
-                      <strong>Devacurl Report</strong>
-                    </div>
-                    <div class="report-metric">
-                      <span>所属经历</span>
-                      <strong>出海引擎实习</strong>
-                    </div>
-                    <div class="report-metric">
-                      <span>能力强调</span>
-                      <strong>经营数据观察</strong>
-                    </div>
-                    <a class="report-open-link" href="https://app.operax.ai/report/8td0ra3tq54udyi9" target="_blank" rel="noreferrer">打开完整报表</a>
-                    <div class="report-preview-caption">
-                      如果需要查看完整图表和原始趋势，可以直接打开原始报表页面。
+                  <div class="report-showcase-frame">
+                    <div class="report-preview-shell">
+                      <div class="report-preview-panel">
+                        <span class="report-preview-badge">第二份数据案例</span>
+                        <h5 class="report-preview-heading">Devacurl 数据报表与经营表现观察</h5>
+                        <p class="report-preview-text">
+                          这份报表对应的是我在出海引擎实习阶段接触的另一组店铺数据样本。放在这里，是为了说明我不只是看过一份单独报表，
+                          而是开始在不同店铺案例里理解经营变化、数据趋势和后续优化思路。
+                        </p>
+                        <div class="report-preview-list">
+                          <div class="report-preview-item">
+                            <strong>案例补充：</strong>和前一份店铺报表一起，形成更完整的数据观察样本。
+                          </div>
+                          <div class="report-preview-item">
+                            <strong>经营视角：</strong>从结果走势去理解不同阶段的运营表现和关键变化。
+                          </div>
+                          <div class="report-preview-item">
+                            <strong>复盘能力：</strong>逐步建立对报表、经营表现和后续动作之间关系的理解。
+                          </div>
+                        </div>
+                      </div>
+                      <div class="report-preview-side">
+                        <div class="report-metric">
+                          <span>案例来源</span>
+                          <strong>Devacurl Report</strong>
+                        </div>
+                        <div class="report-metric">
+                          <span>所属经历</span>
+                          <strong>出海引擎实习</strong>
+                        </div>
+                        <div class="report-metric">
+                          <span>能力强调</span>
+                          <strong>经营数据观察</strong>
+                        </div>
+                        <div class="report-preview-caption">
+                          如果需要查看完整图表和原始趋势，可以直接打开原始报表页面。
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
