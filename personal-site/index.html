@@ -762,6 +762,46 @@
         gap: 18px;
       }
 
+      .future-goals {
+        margin-top: 18px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .future-goal-card {
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .future-goal-card-blue {
+        background: linear-gradient(180deg, rgba(232, 245, 255, 0.98), rgba(255, 255, 255, 0.98));
+      }
+
+      .future-goal-card-lime {
+        background: linear-gradient(180deg, rgba(245, 250, 220, 0.98), rgba(255, 255, 255, 0.98));
+      }
+
+      .future-goal-title {
+        margin: 0 0 14px;
+        color: var(--blue-deep);
+        font-size: 20px;
+      }
+
+      .future-goal-list {
+        margin: 0;
+        padding-left: 22px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.9;
+      }
+
+      .future-goal-list strong {
+        color: var(--text);
+      }
+
       .skill-card {
         padding: 22px;
       }
@@ -1006,6 +1046,10 @@
         .report-growth-grid {
           grid-template-columns: 1fr;
         }
+
+        .future-goals {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (max-width: 720px) {
@@ -1072,7 +1116,7 @@
         <div class="hero-grid">
           <article class="hero-copy">
             <span class="eyebrow">跨境电商运营 / 内容运营 / TikTok 方向</span>
-            <h1>把内容、平台和转化串成一条清晰增长链路。</h1>
+            <h1>用 AI 连接内容、平台与转化，形成清晰且可持续迭代的增长链路。</h1>
             <p>
               我是汤超腾，杭州师范大学电子商务专业在读，持续聚焦跨境电商、内容运营和海外平台增长方向。
               过去的实践主要围绕 TikTok 电商运营、广告投放协同、达人合作、店铺基础运营和数据复盘展开，
@@ -1332,6 +1376,28 @@
             <p>
               熟练使用 Excel、PPT、WPS 等办公软件，能够完成资料整理、信息归纳和团队协作支持。
             </p>
+          </article>
+        </div>
+
+        <div class="future-goals">
+          <article class="future-goal-card future-goal-card-blue">
+            <h3 class="future-goal-title">运营专业化建设</h3>
+            <ul class="future-goal-list">
+              <li>建立一套更系统的 <strong>运营知识库</strong>，把项目经验、报表复盘和方法论沉淀下来。</li>
+              <li>把常见的运营动作、素材判断、数据观察逻辑逐步整理成可以复用的标准。</li>
+              <li>希望未来能让知识沉淀、内容生产和运营执行之间形成更稳定的协同关系。</li>
+              <li>长期目标是把个人经验从“做过”升级成“可复用、可传承、可持续迭代”的能力体系。</li>
+            </ul>
+          </article>
+
+          <article class="future-goal-card future-goal-card-lime">
+            <h3 class="future-goal-title">未来目标</h3>
+            <ul class="future-goal-list">
+              <li>希望逐步走向更强的 <strong>产研运营一体化</strong> 理解，不只做执行，也理解产品与流程。</li>
+              <li>持续采用 <strong>AI native</strong> 的工作方式，让内容、平台、数据和协作效率一起提升。</li>
+              <li>把有限时间投入到更重要的判断、优化和复盘工作上，而不是重复性事务。</li>
+              <li>长期希望通过系统化方法和工具协同，推动运营效率实现数量级提升。</li>
+            </ul>
           </article>
         </div>
       </section>
