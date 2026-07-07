@@ -602,7 +602,51 @@
         background:
           linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(239, 247, 255, 0.98));
         overflow: hidden;
-        padding: 22px;
+        padding: 18px;
+      }
+
+      .report-growth-intro {
+        margin: 0 0 14px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.75;
+      }
+
+      .report-growth-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .report-growth-card {
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.96);
+      }
+
+      .report-growth-card strong {
+        display: block;
+        color: var(--blue-deep);
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+
+      .report-growth-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .report-growth-value {
+        color: var(--text);
+        font-weight: 700;
+      }
+
+      .report-growth-delta {
+        color: var(--blue-deep);
+        font-weight: 700;
       }
 
       .report-preview-shell {
@@ -958,6 +1002,10 @@
         .report-case-grid {
           grid-template-columns: 1fr;
         }
+
+        .report-growth-grid {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (max-width: 720px) {
@@ -1156,42 +1204,26 @@
                     <a class="button button-secondary" href="https://app.operax.ai/report/flri7ala4mv1d52f" target="_blank" rel="noreferrer">打开报表</a>
                   </div>
                   <div class="report-showcase-frame">
-                    <div class="report-preview-shell">
-                      <div class="report-preview-panel">
-                        <span class="report-preview-badge">数据报表案例</span>
-                        <h5 class="report-preview-heading">店铺经营报表整理与结果观察</h5>
-                        <p class="report-preview-text">
-                          这个报表来自我在业务实践里接触的数据复盘工作。由于 Operax 报表页不适合直接嵌入网页预览，这里改成更稳定的案例展示卡，
-                          重点体现我对店铺数据、经营表现和复盘思路的接触与理解。
-                        </p>
-                        <div class="report-preview-list">
-                        <div class="report-preview-item">
-                          <strong>GMV 增长：</strong>从 2025 年下半年几乎为零，增长到 2026 年上半年联盟 GMV <strong>$417,671</strong>，4 月单月峰值达到 <strong>$91,974</strong>。
-                        </div>
-                        <div class="report-preview-item">
-                          <strong>达人增长：</strong>活跃达人从 2025 年下半年的 <strong>464</strong>，增长到 2026 年上半年累计 <strong>21,235</strong>，峰值单月达到 <strong>6,062</strong>，约 <strong>+4,479%</strong>。
-                        </div>
-                        <div class="report-preview-item">
-                          <strong>内容增长：</strong>视频量从 2025 年下半年的 <strong>783</strong>，增长到 2026 年上半年 <strong>3,460</strong>，约 <strong>+342%</strong>；单月峰值从冷启动的 4 条提升到 <strong>1,285</strong> 条。
-                        </div>
+                    <p class="report-growth-intro">
+                      这份报表可以直接看出从 <span class="report-growth-value">2025 年 10 月冷启动阶段</span> 到
+                      <span class="report-growth-value">2026 年上半年</span> 的核心增长变化，重点体现在 GMV、建联达人和内容产出三个维度。
+                    </p>
+                    <div class="report-growth-grid">
+                      <div class="report-growth-card">
+                        <strong>GMV 增长</strong>
+                        <p>从 <span class="report-growth-value">接近 0</span> 增长到累计 <span class="report-growth-value">$417,671</span>，4 月单月峰值达到 <span class="report-growth-value">$91,974</span>。</p>
                       </div>
+                      <div class="report-growth-card">
+                        <strong>建联 / 活跃达人增长</strong>
+                        <p>从 <span class="report-growth-value">464</span> 增长到累计 <span class="report-growth-value">21,235</span>，净增 <span class="report-growth-delta">20,771</span>，约 <span class="report-growth-delta">+4,479%</span>。</p>
                       </div>
-                      <div class="report-preview-side">
-                        <div class="report-metric">
-                          <span>GMV 峰值</span>
-                          <strong>$91.9K / 2026.04</strong>
-                        </div>
-                        <div class="report-metric">
-                          <span>达人峰值</span>
-                          <strong>6,062 人</strong>
-                        </div>
-                        <div class="report-metric">
-                          <span>最佳广告 ROI</span>
-                          <strong>4.31×</strong>
-                        </div>
-                        <div class="report-preview-caption">
-                          需要查看原始明细与完整图表时，可直接打开原始报表页面。
-                        </div>
+                      <div class="report-growth-card">
+                        <strong>内容产出增长</strong>
+                        <p>视频量从 <span class="report-growth-value">783</span> 增长到 <span class="report-growth-value">3,460</span>，净增 <span class="report-growth-delta">2,677</span>，约 <span class="report-growth-delta">+342%</span>。</p>
+                      </div>
+                      <div class="report-growth-card">
+                        <strong>补充表现</strong>
+                        <p>单月内容峰值从冷启动时的 <span class="report-growth-value">4 条</span> 提升到 <span class="report-growth-value">1,285 条</span>，最佳广告 ROI 达到 <span class="report-growth-value">4.31×</span>。</p>
                       </div>
                     </div>
                   </div>
@@ -1202,42 +1234,26 @@
                     <a class="button button-secondary" href="https://app.operax.ai/report/8td0ra3tq54udyi9" target="_blank" rel="noreferrer">打开报表</a>
                   </div>
                   <div class="report-showcase-frame">
-                    <div class="report-preview-shell">
-                      <div class="report-preview-panel">
-                        <span class="report-preview-badge">第二份数据案例</span>
-                        <h5 class="report-preview-heading">Devacurl 数据报表与经营表现观察</h5>
-                        <p class="report-preview-text">
-                          这份报表对应的是我在出海引擎实习阶段接触的另一组店铺数据样本。放在这里，是为了说明我不只是看过一份单独报表，
-                          而是开始在不同店铺案例里理解经营变化、数据趋势和后续优化思路。
-                        </p>
-                        <div class="report-preview-list">
-                        <div class="report-preview-item">
-                          <strong>GMV 增长：</strong>2026 年 1–7 月联盟 GMV 累计达到 <strong>$35.1K</strong>，并在 6 月冲到单月峰值 <strong>$12.2K</strong>。
-                        </div>
-                        <div class="report-preview-item">
-                          <strong>达人与内容：</strong>H1 2026 累计活跃带货达人超过 <strong>100+</strong>，6 月峰值活跃达人达到 <strong>705</strong>，同期发布视频总量达到 <strong>3,415</strong>，月均约 <strong>569</strong> 条。
-                        </div>
-                        <div class="report-preview-item">
-                          <strong>样品计划增长：</strong>样品申请从 2026 年 3 月的 <strong>2.3K</strong> 增长到 6 月的 <strong>5,223</strong>，约 <strong>+127%</strong>，6 月环比继续增长 <strong>20%</strong>。
-                        </div>
+                    <p class="report-growth-intro">
+                      这份 Devacurl 报表的公开区间主要集中在 <span class="report-growth-value">2026 年 1–7 月</span>，
+                      所以这里按该报表可见时间范围展示增长，重点看 GMV、达人活跃和样品申请。
+                    </p>
+                    <div class="report-growth-grid">
+                      <div class="report-growth-card">
+                        <strong>GMV 增长</strong>
+                        <p>从年初冷启动增长到累计 <span class="report-growth-value">$35.1K</span>，并在 6 月冲到单月峰值 <span class="report-growth-value">$12.2K</span>。</p>
                       </div>
+                      <div class="report-growth-card">
+                        <strong>达人活跃增长</strong>
+                        <p>H1 2026 累计活跃带货达人超过 <span class="report-growth-value">100+</span>，6 月峰值达到 <span class="report-growth-value">705</span>。</p>
                       </div>
-                      <div class="report-preview-side">
-                        <div class="report-metric">
-                          <span>单月 GMV 峰值</span>
-                          <strong>$12.2K / 2026.06</strong>
-                        </div>
-                        <div class="report-metric">
-                          <span>样品申请峰值</span>
-                          <strong>5,223</strong>
-                        </div>
-                        <div class="report-metric">
-                          <span>最佳广告 ROAS</span>
-                          <strong>1.30</strong>
-                        </div>
-                        <div class="report-preview-caption">
-                          如果需要查看完整图表和原始趋势，可以直接打开原始报表页面。
-                        </div>
+                      <div class="report-growth-card">
+                        <strong>内容产出增长</strong>
+                        <p>同期发布视频总量达到 <span class="report-growth-value">3,415</span>，月均约 <span class="report-growth-value">569</span> 条，内容产出保持稳定增长。</p>
+                      </div>
+                      <div class="report-growth-card">
+                        <strong>样品申请增长</strong>
+                        <p>从 2026 年 3 月的 <span class="report-growth-value">2.3K</span> 增长到 6 月的 <span class="report-growth-value">5,223</span>，净增约 <span class="report-growth-delta">2,923</span>，约 <span class="report-growth-delta">+127%</span>。</p>
                       </div>
                     </div>
                   </div>
